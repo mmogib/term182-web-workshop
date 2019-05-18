@@ -1,13 +1,11 @@
 const empSection = document.querySelector("#employment > table > tbody");
 const pubSection = document.querySelector("#publications table tbody");
-fetch("../data/data.json")
-  .then(data => data.json())
-  .then(data => {
-    const emp = data.employment;
-    const pub = data.publications;
-    const empHTML = emp
-      .map((v, i) => {
-        return `
+
+const emp = data.employment;
+const pub = data.publications;
+const empHTML = emp
+  .map((v, i) => {
+    return `
       <tr>
           <th scope="row">${i + 1}</th>
           <td>${v.job}</td>
@@ -15,19 +13,18 @@ fetch("../data/data.json")
           <td>${v.to}</td>
       </tr>
       `;
-      })
-      .join("");
+  })
+  .join("");
 
-    const pubHTML = pub
-      .map((v, i) => {
-        return `
+const pubHTML = pub
+  .map((v, i) => {
+    return `
       <tr>
         <th scope="row">${i + 1}</th>
         <td>${v.title}</td>
       </tr>
       `;
-      })
-      .join("");
-    empSection.innerHTML = empHTML;
-    pubSection.innerHTML = pubHTML;
-  });
+  })
+  .join("");
+empSection.innerHTML = empHTML;
+pubSection.innerHTML = pubHTML;
