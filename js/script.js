@@ -10,7 +10,10 @@ fetch("../data/data.json")
         return `
       <tr>
           <th scope="row">${i + 1}</th>
-          <td>${v.job}</td>
+          <td>
+          <span class="font-weight-bold">${v.job}</span> </br>
+          ${v.institution}
+          </td>
           <td>${v.from}</td>
           <td>${v.to}</td>
       </tr>
